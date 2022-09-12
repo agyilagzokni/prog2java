@@ -98,7 +98,7 @@ hatalmas kulonbség van egy lokalis valtozo és egy mezo közt
 egy lokalis valtozot addig nem hasznalhatsz amig nincs értéke
 egy lokalis valtozo értékadása jobb oldalan nem szerepelhet, amig nincs értéke
 viszont egy mezőt lehet igy hasznalni
-egy mezok akkor is hasznalhatsz ha soha sem deklaralod
+egy mezot akkor is hasznalhatsz ha soha sem deklaralod
 kérdés milyen hibaüzenetet kapsz, ha lokalis valtozot szeretnél hasznalni:
 variable i might not have been initialized
 a konstruktorokat elérni a this és a super kulcsszavak segitségével lehet
@@ -106,3 +106,21 @@ sajat konstruktort ugy kell irni hogy this(paraméterlista)
 őskonstruktorát ugy kell irni super(paraméterlista)
 
 tegyuk fel hogy 4 mezönk van
+class Négyszög{
+    private double A;
+    private double B;
+    private double C;
+    private double D;
+    public Négyszög(double A, double B, double C, double D){ //bármilyen négyszög
+        this.A = A;
+        this.B = B;
+        this.C = C;
+        this.D = D;
+    }
+    public Négyszög(double A){ // négyzet
+        this(A, A, A, A);
+    }
+    public Négyszög(double A, double B){ // téglalap
+        this(A, B, A, B);
+    }
+}
