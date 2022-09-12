@@ -1,0 +1,108 @@
+OOP alapelvek:
+-egységbezárás (encapsulation)
+-öröklődés (inheritance)
+-többalakusag (polymorphism)
+az osztalynak van:
+-területe
+-megvalositas
+
+az objektumnak van
+-felülete
+-viselkedése (behavior)
+-belső állapota (inner state)
+public class Kutya{
+	private String név;
+	private double súly;
+	private Kutya(){
+		név = "Buksi";
+		súly = 5.2;
+	}
+	public String getNév(){return név;}
+	public void setNév(String újNév){név = újNév;}
+}
+
+a felületnek része az öndokumentalo megjegyzés és \**
+a java doc a java forrásbol un. html kodotgeneral
+a java ugy mukodik hogy a forrasbol bajtkodot forditunk (compile)
+ezutan a bajtkodot egy un. java virtualis gépben (jvm java virtual machine) futtatja, interpreter modban azaz utasitasrol utasitasra a bajtkodot menet közben forditja at bajtkodot forditja gép koddá
+a bajtkod fut a jvmben
+a java nem a gépen fut hanem a gép op rendszere altal futtatott virtualis gépen
+ez lehetové teszi, hogy a java platformfuggetln legyen, ugyugy fusson 32 bites és 64 bites proceszoron, x86 x64 
+a javaban az nem kerdes hogy hany byteos az int
+az int ugyanakkora mint a futtatott rendszernek a szómérete
+
+a belső állapot: az a mezők pillanatnyi értéke
+mi a k1 belső állapota: a neve Buksi, súlya 5.2kg
+a belső állapot kezdőértékét a konstruktor allitja be
+a konstruktor adja meg a kezdő állapotot
+a belso allapot modja szerint az osztaly lehet stateless (állapotnélküli), lehet immutable( megvaltozhatatlan), mutable (megvaltoztathato)
+ha nincs egy mezönk se akkor stateless
+ha vannak mezöink és csak a konstruktor allitja a bezoket akkor az immutable
+ha vannak settereim és gettereim akkor az mutable
+
+2. a String osztaly immutable
+ha létrehozol egy Stringet utana sehogy se lehet megvaltoztatni
+nem az eredeti string valtozik át, toUpperCase visszaad egy uj Stringet, ami nagybetus lesz
+3 oldalas esszé a String osztály összes metodusairol
+alapvetöen immutablet szeretnénk
+amig nincs if addig felesleges beszelgetni a viselkedesrol
+a viselkedes azt jelenti, hogy a futo program melyik agon fut le
+amig nincs if addig a megvalositas és a viselkedes lényegeben ugyanaz
+mégse ugyanaz a megvalositas az a forraskod statikus vetülete
+a viselkedes az a forraskod dinamikus vetülete
+a viselkedes a futo forraskodja
+a Kutya lehet mérges és nem mérges
+a mérges kutya ugatasa grrrgrr
+a nem mérges kutya ugatasa vau vau
+azaz mas a viselkedes
+a viselkedes az a megvalositasok közül az egyik
+implementacio statikus vetulet
+megvalositas dinamikus vetület
+
+oop alapelve:
+-egységbezaras (encapsulation)
+-öröklődés (inheritance)
+-többalakusag (polymorphism)
+első tétel
+egységbezaras: példánynak van belső allapota, és az kivulrol nem modosithato csak belulrol
+azaz tilos public mezoket hasznalni minden mezo legyen private
+
+öröklődés: gyermekosztaly megörökli az ős felületét és megvalositasat is
+
+többalakuság: egy példány barmelyik felületén keresztül hasznalhato
+a Kutya hasznalhato Kutyaként is és Objectként is
+
+Konstruktor (második tétel)
+kezdőállapot
+konstruktornak kulcsszava nincs
+a konstruktor egy olyan fuggveny amelynek a neve megegyezik az osztaly nevevel, visszatérési tipusa nincs
+
+konstruktort nem kötelező irni
+ha nem irsz konstruktort akkor is van konstruktor, egy un. automatikus (explicit) konstruktor
+ami 0 paraméteres és egyetlen egy dolgot csinal az ős 0 paraméteres konstruktorát hivja meg
+
+az explicit konstruktor public és 0 paraméteres
+
+ha barmelyik konstruktort irsz akkor explicit konstruktornal
+
+a konstruktorban illik minden mezők beallitani, ugyanakkor nem muszaj
+
+ha egy mezonek nem adok kezdoértéket sem deklaraciojaban sem konstruktorban, akkor a mezo értéke
+a típusanak megfelelő alapértelmezett érték lesz
+ez azt jelenti, hogy Stringnek null lesz, intnek 0 lesz az értéke, booleannél false, double 0.0
+
+tipusok alapértelmezett értéke
+legalabb 1 oldalas esszé, tipusok alapértelmezett értékei
+
+hatalmas kulonbség van egy lokalis valtozo és egy mezo közt
+egy lokalis valtozot addig nem hasznalhatsz amig nincs értéke
+egy lokalis valtozo értékadása jobb oldalan nem szerepelhet, amig nincs értéke
+viszont egy mezőt lehet igy hasznalni
+egy mezok akkor is hasznalhatsz ha soha sem deklaralod
+kérdés milyen hibaüzenetet kapsz, ha lokalis valtozot szeretnél hasznalni:
+variable i might not have been initialized
+a konstruktorokat elérni a this és a super kulcsszavak segitségével lehet
+sajat konstruktort ugy kell irni hogy this(paraméterlista)
+őskonstruktorát ugy kell irni super(paraméterlista)
+
+tegyuk fel hogy 4 mezönk van
