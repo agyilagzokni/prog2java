@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Kutya {
     private String név;
     private double súly;
@@ -27,5 +29,10 @@ public class Kutya {
         }else{
             return "vauvau";
         }
+    }
+    public int randomSzám(){
+        Random rand = new Random();
+        int szám = rand.nextInt(0, 30);
+        return szám;
     }
 }
