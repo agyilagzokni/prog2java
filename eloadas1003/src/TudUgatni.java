@@ -1,0 +1,3 @@
+interface TudUgatni {
+    String Ugat();
+}
