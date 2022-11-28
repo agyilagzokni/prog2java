@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -14,5 +15,8 @@ public class Main {
         teszt.add(new GregorianCalendar(2022, 10, 1), 30);
         teszt.add(new GregorianCalendar(2021, 10, 1), 10);
         System.out.println(teszt.évÁtlaga(2021));
+        KönyvesPolc polc = new KönyvesPolc();
+        KönyvesPolc.Könyv k1 = new KönyvesPolc.Könyv("asd", new String[] {"a", "b"}, 2010);
+        polc.addKönyv(k1);
     }
 }
